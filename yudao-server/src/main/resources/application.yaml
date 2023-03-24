@@ -75,6 +75,7 @@ mybatis-plus:
   type-aliases-package: ${yudao.info.base-package}.module.*.dal.dataobject
   encryptor:
     password: XDV71a+xqStEA3WH # 加解密的秘钥，可使用 https://www.imaegoo.com/2020/aes-key-generator/ 网站生成
+  mapper-locations: classpath*:mapper/**/*.xml # 指定 mapper.xml 文件的位置
 
 --- #################### 验证码相关配置 ####################
 
@@ -110,11 +111,11 @@ yudao:
       - /admin-api/mp/open/** # 微信公众号开放平台，微信回调接口，不需要登录
   websocket:
     enable: true # websocket的开关
-    path: /websocket/message # 路径
-    maxOnlineCount: 0 # 最大连接人数
+    path: /websocket/message # 路径/
+    maxOnlineCount: 10 # 最大连接人数
     sessionMap: true # 保存sessionMap
   swagger:
-    title: 芋道快速开发平台
+    title: Zenkins API 平台
     description: 提供管理后台、用户 App 的所有功能
     version: ${yudao.info.version}
     url: ${yudao.web.admin-ui.url}
@@ -145,6 +146,8 @@ yudao:
       - /admin-api/pay/notify/callback/* # 支付回调通知，不携带租户编号
       - /jmreport/* # 积木报表，无法携带租户编号
       - /admin-api/mp/open/** # 微信公众号开放平台，微信回调接口，无法携带租户编号
+      - /admin-api/system/machine/*
+      - /admin-api/system/machinegroup/*
     ignore-tables:
       - system_tenant
       - system_tenant_package
@@ -188,6 +191,14 @@ yudao:
       - rep_demo_jianpiao
       - tmp_report_data_1
       - tmp_report_data_income
+      - machine_info
+      - machine_group
+      - machine_of_group
+      - project_info
+      - project_feature
+      - project_version_commit_dict
+      - platform_info
+      - node_info
   sms-code: # 短信验证码相关的配置项
     expire-times: 10m
     send-frequency: 1m
@@ -205,3 +216,15 @@ debug: false
 minidao :
   base-package: org.jeecg.modules.jmreport.desreport.dao*
   db-type: mysql
+
+gitee:
+  openapi:
+    accessToken: 7f9ba29d549e4d7d4c6db54cacd62ac6
+
+jenkins:
+  server:
+    jenkinsServerUrl: http://192.168.143.131:8080
+  repo:
+    repositoryUrl: http://192.168.143.132:5000
+    api:
+      queryVersion: "%s/v2/%s/%s/tags/list"

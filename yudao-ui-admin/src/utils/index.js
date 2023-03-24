@@ -143,6 +143,29 @@ export function param2Obj(url) {
 }
 
 /**
+ * 解决GET查询参数JSON嵌套问题
+ * {                        {
+ *     pageSize: 10,            pageSize: 10,
+ *     queryObj:{
+ *        name: xxx   ==>       queryObj.name: xxx
+ *     }
+ * }                        }
+ * @param data
+ */
+export function nestedGetQuery(source,prefix,transfer) {
+  if (!transfer)transfer={}
+  for(let key in source){
+    let value = source[key]
+    if(value && typeof (value) == 'object' && Object.prototype.toString.call(value).toLowerCase() == "[object object]"){//如果是对象则嵌套解析
+      nestedGetQuery(value,prefix?prefix+'.'+key:key,transfer)
+    }else {
+      transfer[prefix ? prefix + '.' + key : key] = value;
+    }
+  }
+  return transfer
+}
+
+/**
  * @param {string} val
  * @returns {string}
  */

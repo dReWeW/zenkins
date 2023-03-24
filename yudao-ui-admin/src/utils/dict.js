@@ -11,6 +11,8 @@ export const DICT_TYPE = {
   TERMINAL: 'terminal',
 
   // ========== SYSTEM 模块 ==========
+  SYSTEM_PROJECT_STATUS: 'system_project_status',
+  SYSTEM_PROJECT_TYPE: 'system_project_type',
   SYSTEM_USER_SEX: 'system_user_sex',
   SYSTEM_MENU_TYPE: 'system_menu_type',
   SYSTEM_ROLE_TYPE: 'system_role_type',

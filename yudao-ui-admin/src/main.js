@@ -48,6 +48,9 @@ import DictTag from '@/components/DictTag'
 import DocAlert from '@/components/DocAlert'
 // 头部标签插件
 import VueMeta from 'vue-meta'
+import DashBoard from '@/components/DashBoard'
+
+Vue.component('DashBoard', DashBoard)
 
 Vue.use(directive)
 Vue.use(plugins)
@@ -89,6 +92,21 @@ Vue.use(Element, {
   size: localStorage.getItem("size") || "medium", // set element-ui default size
 });
 
+
+// codemirror
+
+import VueCodemirror from 'vue-codemirror'
+import 'codemirror/lib/codemirror'
+Vue.use(VueCodemirror)
+
+// mavon-editor (markdown editor)
+
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+
+Vue.use(mavonEditor)
+
+
 Vue.config.productionTip = false
 
 new Vue({
@@ -97,3 +115,5 @@ new Vue({
   store,
   render: h => h(App)
 })
+
+

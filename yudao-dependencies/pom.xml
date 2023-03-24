@@ -69,10 +69,16 @@
         <jimureport.version>1.5.6</jimureport.version>
         <xercesImpl.version>2.12.2</xercesImpl.version>
         <wx-java-mp.version>4.3.0</wx-java-mp.version>
+        <jenkins.client.version>0.3.8</jenkins.client.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.offbytwo.jenkins</groupId>
+                <artifactId>jenkins-client</artifactId>
+                <version>${jenkins.client.version}</version>
+            </dependency>
             <!-- 统一依赖管理 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -600,9 +606,9 @@
             </dependency>
             <!-- SpringBoot Websocket -->
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-websocket</artifactId>
-                <version>${spring.boot.version}</version>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-websocket</artifactId>
+                <version>6.0.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

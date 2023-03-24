@@ -114,13 +114,13 @@ public class YudaoSwaggerAutoConfiguration {
     }
 
     public static GroupedOpenApi buildGroupedOpenApi(String group, String path) {
-        return GroupedOpenApi.builder()
-                .group(group)
-                .pathsToMatch("/admin-api/" + path + "/**", "/app-api/" + path + "/**")
-                .addOperationCustomizer((operation, handlerMethod) -> operation
-                        .addParametersItem(buildTenantHeaderParameter())
-                        .addParametersItem(buildSecurityHeaderParameter()))
-                .build();
+        return GroupedOpenApi.builder().group(group).pathsToMatch("/admin-api/system/project/" + path + "/**",
+                "/admin-api/system/machine/" + path + "/**",
+                "/admin-api/system/projectvc/" + path + "/**",
+                "/admin-api/system/machinegroup/" + path + "/**",
+                "/admin-api/system/platform/" + path + "/**")
+            .addOperationCustomizer((operation, handlerMethod) -> operation.addParametersItem(buildTenantHeaderParameter())
+                .addParametersItem(buildSecurityHeaderParameter())).build();
     }
 
     /**

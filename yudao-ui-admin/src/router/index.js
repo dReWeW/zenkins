@@ -69,11 +69,11 @@ export const constantRoutes = [
     component: Layout,
     redirect: 'index',
     children: [{
-        path: 'index',
-        component: (resolve) => require(['@/views/index'], resolve),
-        name: '首页',
-        meta: {title: '首页', icon: 'dashboard', affix: true}
-      }
+      path: 'index',
+      component: (resolve) => require(['@/views/index'], resolve),
+      name: '首页',
+      meta: { title: '首页', icon: 'dashboard', affix: true }
+    }
     ]
   },
   {
@@ -82,15 +82,15 @@ export const constantRoutes = [
     hidden: true,
     redirect: 'noredirect',
     children: [{
-        path: 'profile',
-        component: (resolve) => require(['@/views/system/user/profile/index'], resolve),
-        name: 'Profile',
-        meta: {title: '个人中心', icon: 'user'}
-      }, {
-        path: 'notify-message',
-        component: (resolve) => require(['@/views/system/notify/my/index'], resolve),
-        name: 'MyNotifyMessage',
-        meta: { title: '我的站内信', icon: 'message' },
+      path: 'profile',
+      component: (resolve) => require(['@/views/system/user/profile/index'], resolve),
+      name: 'Profile',
+      meta: { title: '个人中心', icon: 'user' }
+    }, {
+      path: 'notify-message',
+      component: (resolve) => require(['@/views/system/notify/my/index'], resolve),
+      name: 'MyNotifyMessage',
+      meta: { title: '我的站内信', icon: 'message' },
     }]
   },
   {
@@ -98,11 +98,38 @@ export const constantRoutes = [
     component: Layout,
     hidden: true,
     children: [{
-        path: 'type/data/:dictId(\\d+)',
-        component: (resolve) => require(['@/views/system/dict/data'], resolve),
-        name: 'Data',
-        meta: {title: '字典数据', icon: '', activeMenu: '/system/dict'}
-      }
+      path: 'type/data/:dictId(\\d+)',
+      component: (resolve) => require(['@/views/system/dict/data'], resolve),
+      name: 'Data',
+      meta: { title: '字典数据', icon: '', activeMenu: '/system/dict' }
+    }
+    ]
+  },
+  {
+    path: '/project',
+    component: Layout,
+    hidden: true,
+    children: [{
+      path: 'detail',
+      component: (resolve) => require(['@/views/system/project/detail/index'], resolve),
+      name: 'featureDetail',
+      meta: { title: '分支详情', icon: 'project', activeMenu: '/system/project' }
+    }, {
+      path: 'detail/deploy',
+      component: (resolve) => require(['@/views/system/project/detail/deploy'], resolve),
+      name: 'featureDeploy',
+      meta: { title: '分支部署', icon: 'project', activeMenu: '/system/project' }
+    },{
+      path: 'detail/build_detail/:buildId(\\d+)',
+      component: (resolve) => require(['@/views/system/project/detail/bdetail'], resolve),
+      name: 'buildDetail',
+      meta: { title: '构建详情', icon: 'project', activeMenu: '/system/project' }
+    },{
+      path: 'detail/deploy_detail/:id(\\d+)',
+      component: (resolve) => require(['@/views/system/project/detail/ddetail'], resolve),
+      name: 'deployDetail',
+      meta: { title: '部署详情', icon: 'project', activeMenu: '/system/project' }
+    }
     ]
   },
   {
@@ -110,22 +137,22 @@ export const constantRoutes = [
     component: Layout,
     hidden: true,
     children: [{
-        path: 'log',
-        component: (resolve) => require(['@/views/infra/job/log'], resolve),
-        name: 'JobLog',
-        meta: {title: '调度日志', activeMenu: '/infra/job'}
-      }
+      path: 'log',
+      component: (resolve) => require(['@/views/infra/job/log'], resolve),
+      name: 'JobLog',
+      meta: { title: '调度日志', activeMenu: '/infra/job' }
+    }
     ]
   }, {
     path: '/codegen',
     component: Layout,
     hidden: true,
     children: [{
-        path: 'edit/:tableId(\\d+)',
-        component: (resolve) => require(['@/views/infra/codegen/editTable'], resolve),
-        name: 'GenEdit',
-        meta: {title: '修改生成配置', activeMenu: '/infra/codegen'}
-      }
+      path: 'edit/:tableId(\\d+)',
+      component: (resolve) => require(['@/views/infra/codegen/editTable'], resolve),
+      name: 'GenEdit',
+      meta: { title: '修改生成配置', activeMenu: '/infra/codegen' }
+    }
     ]
   },
   {
@@ -134,16 +161,16 @@ export const constantRoutes = [
     hidden: true,
     redirect: 'noredirect',
     children: [{
-        path: 'oa/leave/create',
-        component: (resolve) => require(['@/views/bpm/oa/leave/create'], resolve),
-        name: '发起 OA 请假',
-        meta: {title: '发起 OA 请假', icon: 'form', activeMenu: '/bpm/oa/leave'}
-      }, {
-        path: 'oa/leave/detail',
-        component: (resolve) => require(['@/views/bpm/oa/leave/detail'], resolve),
-        name: '查看 OA 请假',
-        meta: {title: '查看 OA 请假', icon: 'view', activeMenu: '/bpm/oa/leave'}
-      }
+      path: 'oa/leave/create',
+      component: (resolve) => require(['@/views/bpm/oa/leave/create'], resolve),
+      name: '发起 OA 请假',
+      meta: { title: '发起 OA 请假', icon: 'form', activeMenu: '/bpm/oa/leave' }
+    }, {
+      path: 'oa/leave/detail',
+      component: (resolve) => require(['@/views/bpm/oa/leave/detail'], resolve),
+      name: '查看 OA 请假',
+      meta: { title: '查看 OA 请假', icon: 'view', activeMenu: '/bpm/oa/leave' }
+    }
     ]
   },
   {
@@ -151,31 +178,31 @@ export const constantRoutes = [
     component: Layout,
     hidden: true,
     children: [{
-        path: 'manager/form/edit',
-        component: (resolve) => require(['@/views/bpm/form/formEditor'], resolve),
-        name: '流程表单-编辑',
-        meta: {title: '流程表单-编辑', activeMenu: '/bpm/manager/form'}
-      }, {
-        path: 'manager/definition',
-        component: (resolve) => require(['@/views/bpm/definition/index'], resolve),
-        name: '流程定义',
-        meta: {title: '流程定义', activeMenu: '/bpm/manager/model'}
-      }, {
-        path: 'manager/model/design',
-        component: (resolve) => require(['@/views/bpm/model/modelEditor'], resolve),
-        name: '设计流程',
-        meta: {title: '设计流程', activeMenu: '/bpm/manager/model'}
-      }, {
-        path: 'process-instance/create',
-        component: (resolve) => require(['@/views/bpm/processInstance/create'], resolve),
-        name: '发起流程',
-        meta: {title: '发起流程', activeMenu: '/bpm/task/my'}
-      }, {
-        path: 'process-instance/detail',
-        component: (resolve) => require(['@/views/bpm/processInstance/detail'], resolve),
-        name: '流程详情',
-        meta: {title: '流程详情', activeMenu: '/bpm/task/my'}
-      }
+      path: 'manager/form/edit',
+      component: (resolve) => require(['@/views/bpm/form/formEditor'], resolve),
+      name: '流程表单-编辑',
+      meta: { title: '流程表单-编辑', activeMenu: '/bpm/manager/form' }
+    }, {
+      path: 'manager/definition',
+      component: (resolve) => require(['@/views/bpm/definition/index'], resolve),
+      name: '流程定义',
+      meta: { title: '流程定义', activeMenu: '/bpm/manager/model' }
+    }, {
+      path: 'manager/model/design',
+      component: (resolve) => require(['@/views/bpm/model/modelEditor'], resolve),
+      name: '设计流程',
+      meta: { title: '设计流程', activeMenu: '/bpm/manager/model' }
+    }, {
+      path: 'process-instance/create',
+      component: (resolve) => require(['@/views/bpm/processInstance/create'], resolve),
+      name: '发起流程',
+      meta: { title: '发起流程', activeMenu: '/bpm/task/my' }
+    }, {
+      path: 'process-instance/detail',
+      component: (resolve) => require(['@/views/bpm/processInstance/detail'], resolve),
+      name: '流程详情',
+      meta: { title: '流程详情', activeMenu: '/bpm/task/my' }
+    }
     ]
   },
   {
@@ -186,7 +213,7 @@ export const constantRoutes = [
       path: 'value/:propertyId(\\d+)',
       component: (resolve) => require(['@/views/mall/product/property/value'], resolve),
       name: 'PropertyValue',
-      meta: {title: '商品属性值', icon: '', activeMenu: '/product/property'}
+      meta: { title: '商品属性值', icon: '', activeMenu: '/product/property' }
     }
     ]
   },
@@ -198,14 +225,14 @@ export const constantRoutes = [
       path: 'edit/:spuId(\\d+)',
       component: (resolve) => require(['@/views/mall/product/spu/save'], resolve),
       name: 'SpuEdit',
-      meta: {title: '修改商品', activeMenu: '/product/spu'}
+      meta: { title: '修改商品', activeMenu: '/product/spu' }
     },
-      {
-        path: 'add',
-        component: (resolve) => require(['@/views/mall/product/spu/save'], resolve),
-        name: 'SpuAdd',
-        meta: {title: '添加商品', activeMenu: '/product/spu'}
-      }
+    {
+      path: 'add',
+      component: (resolve) => require(['@/views/mall/product/spu/save'], resolve),
+      name: 'SpuAdd',
+      meta: { title: '添加商品', activeMenu: '/product/spu' }
+    }
     ]
   },
   {
@@ -248,6 +275,6 @@ Router.prototype.push = function push(location) {
 export default new Router({
   base: process.env.VUE_APP_APP_NAME ? process.env.VUE_APP_APP_NAME : "/",
   mode: 'history', // 去掉url中的#
-  scrollBehavior: () => ({y: 0}),
+  scrollBehavior: () => ({ y: 0 }),
   routes: constantRoutes
 })

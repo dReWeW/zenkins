@@ -1,12 +1,9 @@
 <template>
   <div class="app-container">
-    <doc-alert title="用户体系" url="https://doc.iocoder.cn/user-center/" />
-    <doc-alert title="三方登陆" url="https://doc.iocoder.cn/social-user/" />
-    <doc-alert title="Excel 导入导出" url="https://doc.iocoder.cn/excel-import-and-export/" />
     <!-- 搜索工作栏 -->
     <el-row :gutter="20">
       <!--部门数据-->
-      <el-col :span="4" :xs="24">
+      <!-- <el-col :span="4" :xs="24">
         <div class="head-container">
           <el-input v-model="deptName" placeholder="请输入部门名称" clearable size="small" prefix-icon="el-icon-search" style="margin-bottom: 20px"/>
         </div>
@@ -14,7 +11,7 @@
           <el-tree :data="deptOptions" :props="defaultProps" :expand-on-click-node="false" :filter-node-method="filterNode"
                    ref="tree" default-expand-all highlight-current @node-click="handleNodeClick"/>
         </div>
-      </el-col>
+      </el-col> -->
       <!--用户数据-->
       <el-col :span="20" :xs="24">
         <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
@@ -33,7 +30,8 @@
           </el-form-item>
           <el-form-item label="创建时间" prop="createTime">
             <el-date-picker v-model="queryParams.createTime" style="width: 240px" value-format="yyyy-MM-dd HH:mm:ss" type="daterange"
-              range-separator="-" start-placeholder="开始日期" end-placeholder="结束日期" :default-time="['00:00:00', '23:59:59']" />
+              range-separator="-" start-placeholder="开始日期" end-placeholder="结束日期" :default-time="['00:00:00', '23:59:59']" >
+            </el-date-picker>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" icon="el-icon-search" @click="handleQuery">搜索</el-button>
@@ -42,7 +40,7 @@
         </el-form>
 
         <el-row :gutter="10" class="mb8">
-          <el-col :span="1.5">
+          <el-col :span="1.5">handleAdd
             <el-button type="primary" plain icon="el-icon-plus" size="mini" @click="handleAdd"
                        v-hasPermi="['system:user:create']">新增</el-button>
           </el-col>

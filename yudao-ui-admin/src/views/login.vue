@@ -1,6 +1,6 @@
 <template xmlns="">
   <div class="container">
-    <div class="logo"></div>
+    <!-- <div class="logo"></div> -->
     <!-- 登录区域 -->
     <div class="content">
       <!-- 配图 -->
@@ -17,8 +17,8 @@
           <el-tabs class="form" v-model="loginForm.loginType" style=" float:none;">
             <el-tab-pane label="账号密码登录" name="uname">
             </el-tab-pane>
-            <el-tab-pane label="短信验证码登录" name="sms">
-            </el-tab-pane>
+            <!-- <el-tab-pane label="短信验证码登录" name="sms">
+            </el-tab-pane> -->
           </el-tabs>
           <div>
             <el-form ref="loginForm" :model="loginForm" :rules="LoginRules" class="login-form">
@@ -74,14 +74,14 @@
               </el-form-item>
 
               <!--  社交登录 -->
-             <el-form-item style="width:100%;">
+             <!-- <el-form-item style="width:100%;">
                   <div class="oauth-login" style="display:flex">
                     <div class="oauth-login-item" v-for="item in SysUserSocialTypeEnum" :key="item.type" @click="doSocialLogin(item)">
                       <img :src="item.img" height="25px" width="25px" alt="登录" >
                       <span>{{item.title}}</span>
                     </div>
                 </div>
-              </el-form-item>
+              </el-form-item> -->
             </el-form>
           </div>
         </div>

@@ -1,11 +1,11 @@
 package cn.iocoder.yudao.module.system.dal.redis;
 
+import static cn.iocoder.yudao.framework.redis.core.RedisKeyDefine.KeyTypeEnum.*;
+
 import cn.iocoder.yudao.framework.redis.core.RedisKeyDefine;
 import cn.iocoder.yudao.module.system.dal.dataobject.oauth2.OAuth2AccessTokenDO;
 
 import java.time.Duration;
-
-import static cn.iocoder.yudao.framework.redis.core.RedisKeyDefine.KeyTypeEnum.STRING;
 
 /**
  * System Redis Key 枚举类
